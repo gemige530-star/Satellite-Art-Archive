@@ -92,110 +92,184 @@
 
   <h1>🛰️ Satellite Art Archive</h1>
   <p>Exploring the intersection of art, technology, and outer space.
-
-    <!-- Projects Section -->
+<!-- Projects Section (24 items, 3 per row, 8 rows) -->
 <style>
-.project-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin: 60px auto;
-  padding: 0 40px;
-  max-width: 1400px;
+#projects24 {
+  margin: 32px auto 64px;
+  max-width: 1200px;
+  padding: 0 24px;
 }
-.project-item {
+#projects24 .project-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+#projects24 .project-item {
   text-align: center;
 }
-.project-item img {
+#projects24 .project-item img {
   width: 100%;
   height: 220px;
   object-fit: cover;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 16px rgba(77,166,255,0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.project-item img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 150, 255, 0.4);
+#projects24 .project-item img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 22px rgba(77,166,255,0.45);
 }
-.project-item a {
+#projects24 .project-item a {
   display: inline-block;
   margin-top: 10px;
-  font-size: 1.1em;
-  color: #3ba9ff; /* 航天蓝 */
+  color: #4da6ff;
   text-decoration: none;
-  transition: color 0.3s ease;
 }
-.project-item a:hover {
-  color: #6ec9ff;
+#projects24 .project-item a:hover {
+  text-decoration: underline;
 }
 </style>
 
-<div class="project-gallery">
+<section id="projects24">
+  <div class="project-gallery">
   <div class="project-item">
-    <a href="https://en.wikipedia.org/wiki/Voyager_Golden_Record" target="_blank">
+    <a href="https://climatecultures.net/museum-of-the-anthropocene/orbital-sunrise/" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Orbital Sunrise">
+      <p><strong>Orbital Sunrise</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="https://www.moma.org/collection/works/62272?utm_source=api&utm_medium=referral&utm_campaign=api&utm_term=62272" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="The Moon Museum">
+      <p><strong>The Moon Museum</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="https://en.wikipedia.org/wiki/Fallen_Astronaut" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Fallen Astronaut">
+      <p><strong>Fallen Astronaut</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="https://science.nasa.gov/mission/voyager/voyager-golden-record/" target="_blank" rel="noopener">
       <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Voyager_Golden_Record.jpg" alt="Voyager Golden Record">
       <p><strong>Voyager Golden Record</strong></p>
     </a>
   </div>
-
   <div class="project-item">
-    <a href="https://en.wikipedia.org/wiki/The_Moon_Museum" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Moon_Museum.jpg" alt="The Moon Museum">
-      <p><strong>The Moon Museum</strong></p>
+    <a href="https://www.ecafe.com/getty/SA/index.html" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Satellite Arts Project">
+      <p><strong>Satellite Arts Project</strong></p>
     </a>
   </div>
-
   <div class="project-item">
-    <a href="https://en.wikipedia.org/wiki/Fallen_Astronaut" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Fallen_Astronaut.jpg" alt="Fallen Astronaut">
-      <p><strong>Fallen Astronaut</strong></p>
+    <a href="https://en.wikipedia.org/wiki/Good_Morning,_Mr._Orwell" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/TV_noise.jpg" alt="Good Morning, Mr. Orwell">
+      <p><strong>Good Morning, Mr. Orwell</strong></p>
     </a>
   </div>
-
   <div class="project-item">
-    <a href="https://en.wikipedia.org/wiki/Satellite_Art" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Communications_satellite_in_orbit.jpg" alt="Satellite Art Project">
-      <p><strong>Satellite Art Project</strong></p>
+    <a href="https://www.fastcompany.com/90343039/how-nasas-artist-in-residence-made-the-golden-record" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="It’s a Beautiful Name for a Space Mission">
+      <p><strong>It’s a Beautiful Name for a Space Mission</strong></p>
     </a>
   </div>
-
   <div class="project-item">
-    <a href="https://en.wikipedia.org/wiki/Orbital_art" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Earth_from_orbit.jpg" alt="Orbital Imagination">
-      <p><strong>Orbital Imagination</strong></p>
+    <a href="https://en.wikipedia.org/wiki/Good_Morning,_Mr._Orwell#Nam_June_Paik" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Good Morning, Mr. Orwell (Broadcast Event)">
+      <p><strong>Good Morning, Mr. Orwell (Broadcast Event)</strong></p>
     </a>
   </div>
-
   <div class="project-item">
-    <a href="https://en.wikipedia.org/wiki/Good_Morning,_Mr._Orwell" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/TV_static_noise.gif" alt="Good Morning Mr. Orwell">
-      <p><strong>Good Morning Mr. Orwell</strong></p>
+    <a href="https://meteoritestheblog.com/2016/11/13/spotting-satellites/" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Spotting Satellites">
+      <p><strong>Spotting Satellites</strong></p>
     </a>
   </div>
-
-  <!-- 以下为占位图项目（使用星空背景） -->
-  <!-- 从第7个到第24个 -->
-  <!-- 你之后可以在这些div里替换为实际作品标题与链接 -->
-  <!-- 模板统一保持 -->
-  <!-- 星空背景公共域图像 -->
-  <!-- https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg -->
-
-  <!-- 7–24 -->
-  <!-- 示例模板 -->
   <div class="project-item">
-    <a href="#" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Project 7">
-      <p><strong>Project 7</strong></p>
+    <a href="https://en.wikipedia.org/wiki/Orbital_Reflector" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Orbital Reflector">
+      <p><strong>Orbital Reflector</strong></p>
     </a>
   </div>
-
-  <!-- 复制下面的项目区块直到第24个 -->
-  <!-- 我已为你自动复制完 -->
-  ${Array.from({length: 18}, (_, i) => `
   <div class="project-item">
-    <a href="#" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Project ${i+8}">
-      <p><strong>Project ${i+8}</strong></p>
+    <a href="https://www.tate.org.uk/art/artists/trevor-paglen-13757" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Trevor Paglen: Orbital Projects">
+      <p><strong>Trevor Paglen: Orbital Projects</strong></p>
     </a>
-  </div>`).join('')}
-</div>
+  </div>
+  <div class="project-item">
+    <a href="https://www.space.com/elon-musk-starlink-astronomy-light-pollution" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Starlink and the Night Sky">
+      <p><strong>Starlink and the Night Sky</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="https://www.noirlab.edu/public/announcements/ann20027/" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Satellite Trails Over Astronomy Images">
+      <p><strong>Satellite Trails Over Astronomy Images</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="https://esa.int/Space_in_Member_States/Italy/Arte_e_spazio" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Arte e Spazio">
+      <p><strong>Arte e Spazio</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="https://www.nasa.gov/history/nasa%E2%80%99s-art-program-capturing-the-spirit-of-exploration/" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="NASA Art Program">
+      <p><strong>NASA Art Program</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="#" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Signal Ecologies">
+      <p><strong>Signal Ecologies</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="#" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Artificial Orbits">
+      <p><strong>Artificial Orbits</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="#" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Orbital Landscapes">
+      <p><strong>Orbital Landscapes</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="#" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Cosmic Cartographies">
+      <p><strong>Cosmic Cartographies</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="#" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Earthrise Revisited">
+      <p><strong>Earthrise Revisited</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="#" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Remote Sensing Aesthetics">
+      <p><strong>Remote Sensing Aesthetics</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="#" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Fluid Expressions">
+      <p><strong>Fluid Expressions</strong></p>
+    </a>
+  </div>
+  <div class="project-item">
+    <a href="https://mp.weixin.qq.com/s/vpNAc_WFbopfJ1GcTJwynA" target="_blank" rel="noopener">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Xu Bing Art Satellite Creative Residency Project">
+      <p><strong>Xu Bing Art Satellite Creative Residency Project</strong></p>
+    </a>
+  </div>
+  </div>
+</section>
+  
