@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satellite Art Archive</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 20% 20%, #0a0a10, #000);
+      color: #e0e0ff;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+    }
+    header {
+      padding: 80px 20px 40px;
+    }
+    h1 {
+      font-size: 3rem;
+      color: #00ccff;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px #00ccff;
+    }
+    p {
+      max-width: 650px;
+      margin: 10px auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #b8c7d9;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 40px;
+    }
+    .gallery img {
+      width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+    }
+    footer {
+      border-top: 1px solid #111;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    a {
+      color: #00ccff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Satellite Art Archive</h1>
+    <p>
+      Exploring the intersection of art, technology, and outer space — documenting artistic practices that engage with satellites, orbits, and cosmic imaginaries.
+    </p>
+  </header>
+
+  <section class="gallery">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Satellite_image_of_earth.jpg" alt="Satellite Art 1">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Light_pollution_world_map.jpg" alt="Satellite Art 2">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/Satellites_above_earth.jpg" alt="Satellite Art 3">
+  </section>
+
+  <footer>
+    © 2025 Satellite Art Archive — Licensed under 
+    <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
+  </footer>
+</body>
+</html>
