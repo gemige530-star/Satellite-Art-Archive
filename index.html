@@ -4,43 +4,6 @@
   <meta charset="UTF-8">
   <title>Satellite Art Archive</title>
   <style>
-    #projects {
-  margin: 3em auto;
-  max-width: 1200px;
-}
-#projects h2 {
-  color: #4da6ff;
-  font-size: 1.8em;
-  margin-bottom: 1em;
-  letter-spacing: 0.05em;
-}
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2em;
-  padding: 0 2em;
-}
-.item img {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(77,166,255,0.3);
-  transition: transform 0.3s ease;
-}
-.item img:hover {
-  transform: scale(1.05);
-}
-.item h3 {
-  margin-top: 0.6em;
-  font-size: 1.1em;
-}
-.item a {
-  color: #9cd6ff;
-  text-decoration: none;
-}
-.item a:hover {
-  text-decoration: underline;
-}
-
     body {
       margin: 0;
       background: black;
@@ -66,14 +29,13 @@
       text-shadow: 0 0 8px #4da6ff;
     }
     h1 {
-      margin-top: 0.8em; /* 减少上方空白 */
-      font-size: 2.6em;
+      margin-top: 20vh;
+      font-size: 3em;
       letter-spacing: 0.1em;
     }
     p {
       font-size: 1.2em;
       opacity: 0.8;
-      margin-top: 0.4em; /* 让说明文字靠近标题 */
     }
     footer {
       margin-top: 5em;
@@ -81,55 +43,20 @@
       font-size: 0.9em;
     }
   </style>
-body {
-  margin: 0;
-  background: black;
-  color: white;
-  font-family: sans-serif;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
-#projects {
-  margin-top: 2em;
-  width: 90%;
-  max-width: 1200px;
-  text-align: left;
-}
+  <h1>🛰️ Satellite Art Archive</h1>
+  <p>Exploring the intersection of art, technology, and outer space.</p>
 
-.gallery {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 2em;
-}
-
-.item {
-  flex: 1;
-  max-width: 350px;
-}
-
-.item img {
-  width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(77,166,255,0.3);
-  transition: transform 0.3s ease;
-}
-
-.item img:hover {
-  transform: scale(1.05);
-}
-
-.item h3 {
-  margin-top: 0.6em;
-  font-size: 1.2em;
-  color: #9cd6ff;
-}
-
-.item p {
-  font-size: 1em;
-  opacity: 0.8;
-  margin-top: 0.3em;
-}
+  <footer>
+    © 2025 Satellite Art Archive · Created by gemige530-star
+  </footer>
+</body>
+</html>
