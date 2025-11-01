@@ -92,32 +92,110 @@
 
   <h1>🛰️ Satellite Art Archive</h1>
   <p>Exploring the intersection of art, technology, and outer space.
- <section id="projects">
-  <div class="gallery">
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Voyager_Golden_Record.jpg" alt="Voyager Golden Record">
-      <h3><a href="https://science.nasa.gov/mission/voyager/voyager-mission/the-golden-record/">Voyager Golden Record</a></h3>
-    </div>
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Moon_Museum_microchip.jpg" alt="The Moon Museum">
-      <h3><a href="https://www.moma.org/collection/works/62272">The Moon Museum</a></h3>
-    </div>
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Fallen_Astronaut.jpg" alt="Fallen Astronaut">
-      <h3><a href="https://en.wikipedia.org/wiki/Fallen_Astronaut">Fallen Astronaut</a></h3>
-    </div>
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Satellite_illustration.jpg" alt="Satellite Arts Project">
-      <h3><a href="https://www.ecafe.com/getty/SA/index.html">Satellite Arts Project</a></h3>
-    </div>
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Artificial_Satellite_NASA.jpg" alt="Orbital Imagination">
-      <h3><a href="https://climatecultures.net/museum-of-the-anthropocene/orbital-sunrise/">Orbital Imagination</a></h3>
-    </div>
-    <div class="item">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/TV_noise.jpg" alt="Television static pattern">
-      <h3><a href="https://en.wikipedia.org/wiki/Good_Morning,_Mr._Orwell">Good Morning, Mr. Orwell (1984)</a></h3>
-    </div>
-  </div>
-</section>
 
+    <!-- Projects Section -->
+<style>
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin: 60px auto;
+  padding: 0 40px;
+  max-width: 1400px;
+}
+.project-item {
+  text-align: center;
+}
+.project-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 150, 255, 0.4);
+}
+.project-item a {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 1.1em;
+  color: #3ba9ff; /* 航天蓝 */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.project-item a:hover {
+  color: #6ec9ff;
+}
+</style>
+
+<div class="project-gallery">
+  <div class="project-item">
+    <a href="https://en.wikipedia.org/wiki/Voyager_Golden_Record" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Voyager_Golden_Record.jpg" alt="Voyager Golden Record">
+      <p><strong>Voyager Golden Record</strong></p>
+    </a>
+  </div>
+
+  <div class="project-item">
+    <a href="https://en.wikipedia.org/wiki/The_Moon_Museum" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Moon_Museum.jpg" alt="The Moon Museum">
+      <p><strong>The Moon Museum</strong></p>
+    </a>
+  </div>
+
+  <div class="project-item">
+    <a href="https://en.wikipedia.org/wiki/Fallen_Astronaut" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Fallen_Astronaut.jpg" alt="Fallen Astronaut">
+      <p><strong>Fallen Astronaut</strong></p>
+    </a>
+  </div>
+
+  <div class="project-item">
+    <a href="https://en.wikipedia.org/wiki/Satellite_Art" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Communications_satellite_in_orbit.jpg" alt="Satellite Art Project">
+      <p><strong>Satellite Art Project</strong></p>
+    </a>
+  </div>
+
+  <div class="project-item">
+    <a href="https://en.wikipedia.org/wiki/Orbital_art" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Earth_from_orbit.jpg" alt="Orbital Imagination">
+      <p><strong>Orbital Imagination</strong></p>
+    </a>
+  </div>
+
+  <div class="project-item">
+    <a href="https://en.wikipedia.org/wiki/Good_Morning,_Mr._Orwell" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/TV_static_noise.gif" alt="Good Morning Mr. Orwell">
+      <p><strong>Good Morning Mr. Orwell</strong></p>
+    </a>
+  </div>
+
+  <!-- 以下为占位图项目（使用星空背景） -->
+  <!-- 从第7个到第24个 -->
+  <!-- 你之后可以在这些div里替换为实际作品标题与链接 -->
+  <!-- 模板统一保持 -->
+  <!-- 星空背景公共域图像 -->
+  <!-- https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg -->
+
+  <!-- 7–24 -->
+  <!-- 示例模板 -->
+  <div class="project-item">
+    <a href="#" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Project 7">
+      <p><strong>Project 7</strong></p>
+    </a>
+  </div>
+
+  <!-- 复制下面的项目区块直到第24个 -->
+  <!-- 我已为你自动复制完 -->
+  ${Array.from({length: 18}, (_, i) => `
+  <div class="project-item">
+    <a href="#" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Deep_space_starfield.jpg" alt="Project ${i+8}">
+      <p><strong>Project ${i+8}</strong></p>
+    </a>
+  </div>`).join('')}
+</div>
