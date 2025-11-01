@@ -10,83 +10,57 @@
       color: white;
       font-family: "Helvetica Neue", Arial, sans-serif;
       text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    nav {
-      background-color: #0a0a0a;
-      padding: 1em 0;
-      box-shadow: 0 0 10px rgba(77,166,255,0.3);
-    }
-    nav a {
-      color: #4da6ff;
-      text-decoration: none;
-      margin: 0 1.2em;
-      font-weight: bold;
-      letter-spacing: 0.05em;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-    nav a:hover {
-      color: #9cd6ff;
-      text-shadow: 0 0 8px #4da6ff;
-    }
+
     h1 {
-      margin-top: 1.5em;
-      font-size: 2.4em;
+      margin-top: 2.5em;
+      font-size: 2.6em;
       letter-spacing: 0.1em;
     }
+
     section {
       max-width: 800px;
-      margin: 2em auto;
-      line-height: 1.7;
+      margin: 3em auto;
+      line-height: 1.8;
       font-size: 1.1em;
       text-align: left;
       opacity: 0.9;
     }
+
     footer {
-      margin-top: 4em;
-      opacity: 0.6;
+      background-color: #0a0a0a;
+      opacity: 0.7;
       font-size: 0.9em;
       text-align: center;
-      padding: 1em 0;
-      border-top: 1px solid #222;
+      padding: 0.8em 0;
+      box-shadow: 0 -2px 8px rgba(77,166,255,0.2);
+      width: 100%;
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <main>
+    <h1>🛰️ Satellite Art Archive</h1>
 
-  <h1>🛰️ Satellite Art Archive</h1>
+    <section>
+      <p><strong>Satellite art</strong> refers to artistic practices that occur in satellite orbits and on the lunar surface. 
+      These include satellites launched for artistic purposes, art performances conducted aboard the International Space Station, 
+      and artworks designed to be sent to the Moon.</p>
 
-  <section>
-    <p><strong>Satellite art</strong> refers to artistic practices that occur in satellite orbits and on the lunar surface. 
-    These include satellites launched for artistic purposes, art performances conducted aboard the International Space Station, 
-    and artworks designed to be sent to the Moon.</p>
-
-    <p style="margin-top: 1.5em;">This website serves as a research-based archive for collecting and organizing data related to 
-    satellite art projects worldwide. The archive is currently in its <strong>trial phase</strong>, 
-    and its structure and content are being gradually expanded.</p>
-  </section>
+      <p style="margin-top: 1.5em;">This website serves as a research-based archive for collecting and organizing data related to 
+      satellite art projects worldwide. The archive is currently in its <strong>trial phase</strong>, 
+      and its structure and content are being gradually expanded.</p>
+    </section>
+  </main>
 
   <footer>
-  © 2025 Satellite Art Archive · Created by gemige530-star
-</footer>
+    © 2025 Satellite Art Archive · Created by gemige530-star
+  </footer>
 
-<style>
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #0a0a0a;
-    opacity: 0.6;
-    font-size: 0.9em;
-    text-align: center;
-    padding: 0.8em 0;
-    box-shadow: 0 -2px 8px rgba(77,166,255,0.2);
-  }
-</style>
+</body>
+</html>
