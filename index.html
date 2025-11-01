@@ -81,37 +81,55 @@
       font-size: 0.9em;
     }
   </style>
-</head>
-<body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  <h1>🛰️ Satellite Art Archive</h1>
-  <p>Exploring the intersection of art, technology, and outer space.
-    <section id="projects">
-  <h2>Featured Works</h2>
-  <div class="gallery">
-    <div class="item">
-      <img src="images/Fallen Astronaut.jpg" alt="Fallen Astronaut">
-      <h3><em>Fallen Astronaut</em> — Paul Van Hoeydonck, 1971</h3>
-      <p>A small aluminum sculpture placed on the Moon during Apollo 15, commemorating astronauts and cosmonauts who lost their lives in the pursuit of space exploration.</p>
-    </div>
+#projects {
+  margin-top: 2em;
+  width: 90%;
+  max-width: 1200px;
+  text-align: left;
+}
 
-    <div class="item">
-      <img src="images/The Moon Museum.jpg" alt="The Moon Museum">
-      <h3><em>The Moon Museum</em> — Forrest Myers, Andy Warhol, Claes Oldenburg, Robert Rauschenberg, and others, 1969</h3>
-      <p>A tiny ceramic chip containing six drawings by leading artists, covertly attached to the Apollo 12 lunar module — often considered the first artwork on the Moon.</p>
-    </div>
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2em;
+}
 
-    <div class="item">
-      <img src="images/Voyager Golden Record.jpg" alt="Voyager Golden Record">
-      <h3><em>Voyager Golden Record</em> — NASA, 1977</h3>
-      <p>A phonograph record launched aboard Voyager 1 and 2, carrying sounds and images from Earth as a message for any extraterrestrial civilization that may find it.</p>
-    </div>
-  </div>
-</section>
+.item {
+  flex: 1;
+  max-width: 350px;
+}
 
+.item img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(77,166,255,0.3);
+  transition: transform 0.3s ease;
+}
+
+.item img:hover {
+  transform: scale(1.05);
+}
+
+.item h3 {
+  margin-top: 0.6em;
+  font-size: 1.2em;
+  color: #9cd6ff;
+}
+
+.item p {
+  font-size: 1em;
+  opacity: 0.8;
+  margin-top: 0.3em;
+}
