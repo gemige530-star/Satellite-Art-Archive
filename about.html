@@ -11,6 +11,9 @@
       font-family: "Helvetica Neue", sans-serif;
       text-align: center;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     /* 导航栏 */
@@ -35,9 +38,8 @@
       text-shadow: 0 0 10px #4da6ff;
     }
 
-    /* Header：缩小间距 */
     header {
-      padding: 1.5em 1em 0.8em 1em; /* ← 缩短上下距离 */
+      padding: 1.5em 1em 0.8em 1em;
     }
     header h1 {
       font-size: 2.4em;
@@ -45,16 +47,11 @@
       margin-bottom: 0.2em;
       text-shadow: 0 0 12px rgba(77,166,255,0.6);
     }
-    header p {
-      font-size: 1.1em;
-      opacity: 0.8;
-      margin: 0;
-    }
 
-    /* 主体内容 */
     section {
-      max-width: 850px;
-      margin: 2.5em auto;
+      flex: 1;
+      max-width: 800px;
+      margin: 2em auto;
       text-align: left;
       line-height: 1.8;
       font-size: 1.05em;
@@ -67,12 +64,12 @@
     }
 
     footer {
-      margin-top: 3em;
       font-size: 0.9em;
       opacity: 0.6;
       text-align: center;
       padding: 1em 0;
       border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: auto;
     }
   </style>
 </head>
@@ -88,19 +85,16 @@
 
   <header>
     <h1>About Satellite Art Archive</h1>
-    <p>Tracing the artistic imagination of orbit and beyond.</p>
   </header>
 
   <section>
     <p><strong>Satellite Art Archive</strong> is a research-driven platform dedicated to documenting and interpreting how contemporary artists engage with the technologies, infrastructures, and imaginaries of outer space. It traces the aesthetic, political, and ecological dimensions of orbital art practices.</p>
-
     <p>The project examines artistic works that involve satellites, space stations, and lunar experiments — including performances, data transmissions, and installations that blur the boundaries between Earth and orbit, human and machine, art and science.</p>
-
-    <p>Curated and maintained by <strong>gemige530-star</strong>, the archive aims to create a growing constellation of references and artworks that reveal how orbital perspectives transform artistic imagination and our understanding of life on Earth.</p>
   </section>
 
   <footer>
     © 2025 Satellite Art Archive · Created by gemige530-star
   </footer>
 
-</body
+</body>
+</html>
