@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Satellite Art Archive</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      color: white;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    h1 {
+      margin-top: 2.5em;
+      font-size: 2.4em;
+      letter-spacing: 0.1em;
+    }
+
+    section {
+      max-width: 700px;
+      margin: 3em auto;
+      line-height: 1.8;
+      font-size: 1.1em;
+      text-align: left;
+      opacity: 0.9;
+    }
+
+    a {
+      color: #4da6ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #9cd6ff;
+      text-shadow: 0 0 6px #4da6ff;
+    }
+
+    form {
+      margin-top: 2em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    input, textarea {
+      background-color: #111;
+      color: white;
+      border: 1px solid #333;
+      padding: 0.8em;
+      font-size: 1em;
+      border-radius: 6px;
+      font-family: inherit;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #4da6ff;
+      box-shadow: 0 0 5px #4da6ff;
+    }
+
+    button {
+      background-color: #4da6ff;
+      border: none;
+      color: black;
+      font-weight: bold;
+      padding: 0.8em 1em;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #9cd6ff;
+    }
+
+    footer {
+      background-color: #0a0a0a;
+      opacity: 0.7;
+      font-size: 0.9em;
+      text-align: center;
+      padding: 0.8em 0;
+      box-shadow: 0 -2px 8px rgba(77,166,255,0.2);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>📡 Contact</h1>
+
+    <section>
+      <p>If you would like to share information about a satellite art project or collaborate with the archive, please reach out.</p>
+      <p>You can contact the curator via email at <a href="mailto:gemige530@gmail.com">gemige530@gmail.com</a>.</p>
+
+      <form>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Satellite Art Archive · Created by gemige530-star
+  </footer>
+
+</body>
+</html>
