@@ -12,27 +12,31 @@
       text-align: center;
     }
     nav {
-      background-color: #111;
+      background-color: #0a0a0a;
       padding: 1em 0;
+      box-shadow: 0 0 10px rgba(77,166,255,0.3);
     }
     nav a {
-      color: #ffcc66;
+      color: #4da6ff; /* 航天蓝 */
       text-decoration: none;
-      margin: 0 1em;
+      margin: 0 1.2em;
       font-weight: bold;
       letter-spacing: 0.05em;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
     }
     nav a:hover {
-      text-decoration: underline;
+      color: #9cd6ff;
+      text-shadow: 0 0 8px #4da6ff;
     }
     h1 {
-      margin-top: 20vh;
-      font-size: 3em;
+      margin-top: 0.8em; /* 减少上方空白 */
+      font-size: 2.6em;
       letter-spacing: 0.1em;
     }
     p {
       font-size: 1.2em;
       opacity: 0.8;
+      margin-top: 0.4em; /* 让说明文字靠近标题 */
     }
     footer {
       margin-top: 5em;
