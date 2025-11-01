@@ -9,16 +9,15 @@
       background-color: black;
       color: white;
       font-family: "Helvetica Neue", Arial, sans-serif;
-      text-align: center;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      min-height: 100vh;
     }
 
     nav {
       background-color: #0a0a0a;
-      padding: 1em 0;
+      padding: 0.8em 0;
+      text-align: center;
       box-shadow: 0 0 10px rgba(77,166,255,0.3);
     }
 
@@ -36,17 +35,27 @@
       text-shadow: 0 0 8px #4da6ff;
     }
 
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2em 1em;
+    }
+
     h1 {
-      margin-top: 2.5em;
-      font-size: 2.4em;
+      margin-top: 1.2em;
+      font-size: 2.2em;
       letter-spacing: 0.1em;
+      text-align: center;
     }
 
     section {
       max-width: 700px;
-      margin: 3em auto;
-      line-height: 1.8;
-      font-size: 1.1em;
+      margin: 1.5em auto;
+      line-height: 1.7;
+      font-size: 1.05em;
       text-align: left;
       opacity: 0.9;
     }
@@ -62,7 +71,7 @@
     }
 
     form {
-      margin-top: 2em;
+      margin-top: 1.5em;
       display: flex;
       flex-direction: column;
       gap: 1em;
@@ -78,54 +87,4 @@
       font-family: inherit;
     }
 
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #4da6ff;
-      box-shadow: 0 0 5px #4da6ff;
-    }
-
-    button {
-      background-color: #4da6ff;
-      border: none;
-      color: black;
-      font-weight: bold;
-      padding: 0.8em 1em;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #9cd6ff;
-    }
-
-    footer {
-      background-color: #0a0a0a;
-      opacity: 0.7;
-      font-size: 0.9em;
-      text-align: center;
-      padding: 0.8em 0;
-      box-shadow: 0 -2px 8px rgba(77,166,255,0.2);
-      width: 100%;
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-  </nav>
-
-  <main>
-    <h1>📡 Contact</h1>
-
-    <section>
-      <p>If you would like to share information about a satellite art project or collaborate with the archive, please reach out.</p>
-      <p>You can contact the curator via email at <a href="mailto:gemige530@gmail.com">gemige530@gmail.com</a>.</p>
-
-      <form>
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <t
+    input:focus, tex
