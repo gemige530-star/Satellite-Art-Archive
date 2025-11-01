@@ -12,9 +12,11 @@
       text-align: center;
       overflow-x: hidden;
     }
+
+    /* 导航栏 */
     nav {
       background-color: rgba(10,10,10,0.9);
-      padding: 1em 0;
+      padding: 0.8em 0;
       box-shadow: 0 0 12px rgba(77,166,255,0.3);
       position: sticky;
       top: 0;
@@ -33,76 +35,48 @@
       text-shadow: 0 0 10px #4da6ff;
     }
 
+    /* Header：缩小间距 */
     header {
-      padding: 5em 1em 2em 1em;
+      padding: 1.5em 1em 0.8em 1em; /* ← 缩短上下距离 */
     }
     header h1 {
-      font-size: 2.8em;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.3em;
+      font-size: 2.4em;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2em;
       text-shadow: 0 0 12px rgba(77,166,255,0.6);
     }
     header p {
-      font-size: 1.2em;
+      font-size: 1.1em;
       opacity: 0.8;
+      margin: 0;
     }
 
+    /* 主体内容 */
     section {
-      max-width: 900px;
-      margin: 4em auto;
+      max-width: 850px;
+      margin: 2.5em auto;
       text-align: left;
       line-height: 1.8;
       font-size: 1.05em;
       opacity: 0.9;
       padding: 0 1.5em;
-    }
-
-    section.mission {
-      background: rgba(30,30,30,0.4);
+      background: rgba(25,25,25,0.35);
       border-left: 3px solid #4da6ff;
-      padding: 2em;
       border-radius: 8px;
-      box-shadow: 0 0 12px rgba(77,166,255,0.2);
-    }
-
-    .curator {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      margin-top: 3em;
-      gap: 2em;
-    }
-    .curator img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 20px rgba(77,166,255,0.3);
-    }
-    .curator div {
-      max-width: 500px;
-      text-align: left;
-    }
-    .curator h3 {
-      margin-top: 0;
-      color: #9cd6ff;
+      box-shadow: 0 0 12px rgba(77,166,255,0.15);
     }
 
     footer {
-      position: relative;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #0a0a0a;
-      opacity: 0.7;
+      margin-top: 3em;
       font-size: 0.9em;
+      opacity: 0.6;
       text-align: center;
       padding: 1em 0;
-      box-shadow: 0 -2px 8px rgba(77,166,255,0.2);
+      border-top: 1px solid rgba(255,255,255,0.1);
     }
   </style>
 </head>
+
 <body>
 
   <nav>
@@ -117,37 +91,16 @@
     <p>Tracing the artistic imagination of orbit and beyond.</p>
   </header>
 
-  <section class="mission">
-    <p>
-      <strong>Satellite Art Archive</strong> is a research-based initiative devoted to exploring how art expands
-      into the orbital realm. It documents, interprets, and curates projects where artists collaborate with
-      engineers, space agencies, and cosmic environments to redefine what art can be.
-    </p>
-    <p>
-      This platform connects <em>the technical</em> with <em>the poetic</em>, following the trajectories of artworks
-      that travel beyond Earth — from early conceptual experiments to present-day satellite performances
-      and lunar transmissions.
-    </p>
-  </section>
+  <section>
+    <p><strong>Satellite Art Archive</strong> is a research-driven platform dedicated to documenting and interpreting how contemporary artists engage with the technologies, infrastructures, and imaginaries of outer space. It traces the aesthetic, political, and ecological dimensions of orbital art practices.</p>
 
-  <section class="curator">
-    <img src="Images/profile.jpg" alt="Curator Portrait (placeholder)">
-    <div>
-      <h3>Curated by gemige530-star</h3>
-      <p>
-        Founder and researcher of the Satellite Art Archive, gemige530-star investigates how orbital
-        technologies influence aesthetic thought, data circulation, and planetary consciousness.
-      </p>
-      <p>
-        Their work bridges digital archiving, media art, and post-terrestrial theory — creating a space
-        where artistic practice meets cosmic infrastructure.
-      </p>
-    </div>
+    <p>The project examines artistic works that involve satellites, space stations, and lunar experiments — including performances, data transmissions, and installations that blur the boundaries between Earth and orbit, human and machine, art and science.</p>
+
+    <p>Curated and maintained by <strong>gemige530-star</strong>, the archive aims to create a growing constellation of references and artworks that reveal how orbital perspectives transform artistic imagination and our understanding of life on Earth.</p>
   </section>
 
   <footer>
     © 2025 Satellite Art Archive · Created by gemige530-star
   </footer>
 
-</body>
-</html>
+</body
