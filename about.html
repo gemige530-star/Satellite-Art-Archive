@@ -16,15 +16,35 @@
       justify-content: space-between;
     }
 
+    nav {
+      background-color: #0a0a0a;
+      padding: 1em 0;
+      box-shadow: 0 0 10px rgba(77,166,255,0.3);
+    }
+
+    nav a {
+      color: #4da6ff;
+      text-decoration: none;
+      margin: 0 1.2em;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #9cd6ff;
+      text-shadow: 0 0 8px #4da6ff;
+    }
+
     h1 {
-      margin-top: 2.5em;
+      margin-top: 1.4em;
       font-size: 2.4em;
       letter-spacing: 0.1em;
     }
 
     section {
       max-width: 800px;
-      margin: 3em auto;
+      margin: 2em auto;
       text-align: left;
       line-height: 1.8;
       font-size: 1.1em;
@@ -44,6 +64,13 @@
   </style>
 </head>
 <body>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
   <main>
     <h1>About Satellite Art Archive</h1>
