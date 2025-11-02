@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Satellite Art Archive</title>
@@ -81,46 +81,63 @@
       position: absolute;
       inset: -100%;
       background-repeat: repeat;
-      animation: twinkle 18s ease-in-out infinite;
+      opacity: 0.7;
+      animation-timing-function: ease-in-out, linear;
+      animation-iteration-count: infinite, infinite;
+      animation-direction: alternate, alternate;
+      animation-fill-mode: both, both;
+      will-change: opacity, filter, transform;
     }
 
     .star-layer--slow::before {
       background-image: radial-gradient(1px 1px at 1px 1px, rgba(255, 255, 255, 0.55) 0, rgba(255, 255, 255, 0) 60%);
       background-size: 220px 220px;
-      animation-duration: 34s;
+      animation-name: twinkle, drift-slow;
+      animation-duration: 36s, 140s;
+      animation-delay: -18s, 0s;
     }
 
     .star-layer--slow::after {
       background-image: radial-gradient(0.8px 0.8px at 1px 1px, rgba(160, 200, 255, 0.4) 0, rgba(255, 255, 255, 0) 60%);
       background-size: 180px 180px;
-      animation-duration: 42s;
-      animation-direction: reverse;
+      animation-name: twinkle, drift-slow;
+      animation-duration: 44s, 160s;
+      animation-delay: -12s, -48s;
+      animation-direction: alternate, alternate-reverse;
     }
 
     .star-layer--mid::before {
       background-image: radial-gradient(1.2px 1.2px at 2px 2px, rgba(255, 255, 255, 0.8) 0, rgba(255, 255, 255, 0) 55%);
       background-size: 160px 160px;
-      animation-duration: 22s;
+      animation-name: twinkle, drift-mid;
+      animation-duration: 24s, 110s;
+      animation-delay: -10s, -26s;
     }
 
     .star-layer--mid::after {
       background-image: radial-gradient(1px 1px at 2px 1px, rgba(210, 230, 255, 0.6) 0, rgba(255, 255, 255, 0) 55%);
       background-size: 130px 130px;
-      animation-duration: 26s;
-      animation-direction: reverse;
+      animation-name: twinkle, drift-mid;
+      animation-duration: 28s, 130s;
+      animation-delay: -16s, -54s;
+      animation-direction: alternate, alternate-reverse;
     }
 
     .star-layer--fast::before {
       background-image: radial-gradient(1.4px 1.4px at 2px 2px, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0) 55%);
       background-size: 110px 110px;
-      animation-duration: 14s;
+      animation-name: twinkle, drift-fast;
+      animation-duration: 16s, 90s;
+      animation-delay: -6s, -18s;
     }
 
     .star-layer--fast::after {
       background-image: radial-gradient(1.2px 1.2px at 1px 1px, rgba(255, 215, 175, 0.7) 0, rgba(255, 255, 255, 0) 55%);
       background-size: 90px 90px;
-      animation-duration: 16s;
-      animation-direction: reverse;
+      animation-name: twinkle, drift-fast;
+      animation-duration: 18s, 110s;
+      animation-delay: -20s, -70s;
+      animation-direction: alternate, alternate-reverse;
     }
 
     .horizon-glow {
@@ -140,16 +157,43 @@
 
     @keyframes twinkle {
       0%, 100% {
-        opacity: 0.35;
-        transform: scale(1);
+        opacity: 0.25;
+        filter: brightness(0.7);
       }
-      45% {
+      40% {
         opacity: 1;
-        transform: scale(1.02);
+        filter: brightness(1.6);
       }
       70% {
-        opacity: 0.6;
-        transform: scale(0.98);
+        opacity: 0.55;
+        filter: brightness(1.1);
+      }
+    }
+
+    @keyframes drift-slow {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-90px, -45px, 0);
+      }
+    }
+
+    @keyframes drift-mid {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-150px, -80px, 0);
+      }
+    }
+
+    @keyframes drift-fast {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-220px, -120px, 0);
       }
     }
 
@@ -309,9 +353,9 @@
 
   <main>
     <h1>🛰️ Satellite Art Archive</h1>
-    <p>探索艺术、科技与宇宙空间交汇的灵感档案。</p>
+    <p>Discover inspiration where art, technology, and the cosmos converge.</p>
 
-    <section class="gallery" aria-label="精选项目">
+    <section class="gallery" aria-label="Featured Projects">
       <a class="gallery-card" href="https://www.moma.org/collection/works/62272?utm_source=chatgpt" target="_blank" rel="noopener">
         <img src="Images/The Moon Museum.jpg" alt="The Moon Museum">
         <div class="gallery-card__body">
