@@ -46,7 +46,17 @@
     }
   </style>
 </head>
-<body>
+<script>
+async function loadAPI() {
+  const res = await fetch("https://satellite-chat-api.vercel.app/api/hello");
+  const data = await res.text();
+  document.getElementById("api-data").innerText = data;
+}
+window.onload = loadAPI;
+</script>
+
+<div id="api-data" style="margin:2em; color:#9cd6ff;"></div>
+  <body>
   <nav>
     <a href="home.html">Home</a>
     <a href="about.html">About</a>
