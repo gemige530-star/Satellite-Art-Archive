@@ -1,151 +1,305 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <title>Satellite Art Archive</title>
   <style>
+    :root {
+      color-scheme: dark;
+      --space-base: #030314;
+      --space-deep: #05051f;
+      --space-mid: #14143a;
+      --nebula-violet: rgba(119, 90, 190, 0.55);
+      --nebula-cyan: rgba(60, 150, 220, 0.38);
+      --horizon-glow: rgba(255, 160, 92, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at 50% -10%, rgba(55, 66, 115, 0.55), transparent 65%),
-        radial-gradient(circle at 50% 45%, rgba(36, 31, 66, 0.35), transparent 70%),
-        radial-gradient(circle at 50% 115%, rgba(156, 104, 59, 0.28), rgba(1, 1, 9, 0.92) 55%),
-        #010109;
-      color: white;
-      font-family: sans-serif;
-      text-align: center;
       min-height: 100vh;
-      position: relative;
+      font-family: "Segoe UI", "PingFang SC", system-ui, sans-serif;
+      color: #f5f7ff;
+      background:
+        radial-gradient(circle at 20% -10%, rgba(65, 90, 185, 0.45), transparent 60%),
+        radial-gradient(circle at 85% 0%, rgba(155, 120, 225, 0.35), transparent 62%),
+        radial-gradient(ellipse at 50% 78%, var(--horizon-glow), rgba(3, 3, 20, 0.92) 55%),
+        radial-gradient(circle at 50% 50%, var(--space-mid), var(--space-deep) 55%, var(--space-base) 100%);
+      background-attachment: fixed;
       overflow: hidden;
+      text-align: center;
+      position: relative;
     }
+
     body::before,
     body::after {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -1;
+      z-index: -2;
     }
+
     body::before {
-      background-image:
-        radial-gradient(1px 1px at 10px 5px, rgba(255, 255, 255, 0.85) 0, rgba(255, 255, 255, 0) 55%),
-        radial-gradient(1px 1px at 80px 120px, rgba(255, 255, 255, 0.7) 0, rgba(255, 255, 255, 0) 60%),
-        radial-gradient(1px 1px at 150px 30px, rgba(255, 255, 255, 0.75) 0, rgba(255, 255, 255, 0) 60%),
-        radial-gradient(1px 1px at 200px 90px, rgba(173, 216, 255, 0.55) 0, rgba(255, 255, 255, 0) 60%),
-        radial-gradient(1px 1px at 40px 200px, rgba(255, 215, 235, 0.45) 0, rgba(255, 255, 255, 0) 65%);
-      background-size: 180px 180px, 200px 200px, 240px 240px, 260px 260px, 220px 220px;
-      animation: drift 40s linear infinite;
-      mix-blend-mode: screen;
-      opacity: 0.9;
+      background:
+        radial-gradient(ellipse at 30% 25%, rgba(120, 160, 250, 0.12), rgba(50, 60, 180, 0) 52%),
+        radial-gradient(circle at 65% 30%, rgba(210, 120, 255, 0.08), rgba(40, 30, 110, 0) 60%),
+        radial-gradient(circle at 48% 60%, rgba(255, 210, 180, 0.05), rgba(0, 0, 0, 0) 70%);
+      filter: blur(4px) saturate(120%);
+      transform: scale(1.1);
+      opacity: 0.8;
     }
+
     body::after {
       background:
-        radial-gradient(ellipse at 50% 35%, rgba(92, 65, 143, 0.55) 0%, rgba(47, 34, 83, 0.4) 30%, rgba(8, 8, 30, 0.15) 55%, rgba(6, 6, 19, 0) 75%),
-        radial-gradient(ellipse at 55% 40%, rgba(146, 101, 190, 0.35) 0%, rgba(40, 32, 70, 0.2) 45%, rgba(1, 1, 8, 0) 70%);
-      filter: blur(2px);
-      transform: rotate(-12deg) scale(1.2);
-      opacity: 0.85;
+        radial-gradient(1.5px 1.5px at 10% 20%, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0) 55%),
+        radial-gradient(1px 1px at 40% 10%, rgba(180, 210, 255, 0.75) 0, rgba(255, 255, 255, 0) 60%),
+        radial-gradient(1.3px 1.3px at 80% 18%, rgba(255, 255, 255, 0.9) 0, rgba(255, 255, 255, 0) 55%),
+        radial-gradient(1px 1px at 65% 40%, rgba(220, 200, 255, 0.7) 0, rgba(255, 255, 255, 0) 60%);
+      background-size: 280px 240px, 220px 260px, 300px 260px, 260px 220px;
+      mix-blend-mode: screen;
+      animation: slow-pan 48s linear infinite;
+      opacity: 0.45;
+      z-index: -3;
     }
-    .stars {
+
+    .star-layer {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -2;
+      overflow: hidden;
+      z-index: -1;
       mix-blend-mode: screen;
     }
-    .stars::before,
-    .stars::after {
+
+    .star-layer::before,
+    .star-layer::after {
       content: "";
       position: absolute;
-      inset: 0;
+      inset: -100%;
       background-repeat: repeat;
       animation: twinkle 18s ease-in-out infinite;
     }
-    .stars--far::before {
-      background-image: radial-gradient(1px 1px at 1px 1px, rgba(255, 255, 255, 0.5) 0, rgba(255, 255, 255, 0) 60%);
-      background-size: 180px 180px;
-      opacity: 0.6;
-      animation-duration: 28s;
-    }
-    .stars--far::after {
-      background-image: radial-gradient(1px 1px at 2px 2px, rgba(190, 205, 255, 0.45) 0, rgba(255, 255, 255, 0) 65%);
-      background-size: 140px 140px;
-      opacity: 0.45;
+
+    .star-layer--slow::before {
+      background-image: radial-gradient(1px 1px at 1px 1px, rgba(255, 255, 255, 0.55) 0, rgba(255, 255, 255, 0) 60%);
+      background-size: 220px 220px;
       animation-duration: 34s;
+    }
+
+    .star-layer--slow::after {
+      background-image: radial-gradient(0.8px 0.8px at 1px 1px, rgba(160, 200, 255, 0.4) 0, rgba(255, 255, 255, 0) 60%);
+      background-size: 180px 180px;
+      animation-duration: 42s;
       animation-direction: reverse;
     }
-    .stars--near::before {
-      background-image: radial-gradient(1.2px 1.2px at 1px 1px, rgba(255, 255, 255, 0.85) 0, rgba(255, 255, 255, 0) 55%);
-      background-size: 120px 120px;
-      opacity: 0.85;
-      animation-duration: 16s;
-    }
-    .stars--near::after {
-      background-image: radial-gradient(1.4px 1.4px at 1px 1px, rgba(220, 200, 255, 0.8) 0, rgba(255, 255, 255, 0) 60%);
-      background-size: 90px 90px;
-      opacity: 0.7;
+
+    .star-layer--mid::before {
+      background-image: radial-gradient(1.2px 1.2px at 2px 2px, rgba(255, 255, 255, 0.8) 0, rgba(255, 255, 255, 0) 55%);
+      background-size: 160px 160px;
       animation-duration: 22s;
+    }
+
+    .star-layer--mid::after {
+      background-image: radial-gradient(1px 1px at 2px 1px, rgba(210, 230, 255, 0.6) 0, rgba(255, 255, 255, 0) 55%);
+      background-size: 130px 130px;
+      animation-duration: 26s;
       animation-direction: reverse;
     }
+
+    .star-layer--fast::before {
+      background-image: radial-gradient(1.4px 1.4px at 2px 2px, rgba(255, 255, 255, 0.95) 0, rgba(255, 255, 255, 0) 55%);
+      background-size: 110px 110px;
+      animation-duration: 14s;
+    }
+
+    .star-layer--fast::after {
+      background-image: radial-gradient(1.2px 1.2px at 1px 1px, rgba(255, 215, 175, 0.7) 0, rgba(255, 255, 255, 0) 55%);
+      background-size: 90px 90px;
+      animation-duration: 16s;
+      animation-direction: reverse;
+    }
+
+    .horizon-glow {
+      position: fixed;
+      inset: auto -20% -25%;
+      height: 55vh;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(255, 190, 125, 0.25) 0%, rgba(80, 20, 5, 0) 70%),
+        radial-gradient(ellipse at 40% 90%, rgba(80, 135, 255, 0.18) 0%, rgba(10, 20, 60, 0) 70%);
+      transform: translateY(15%) scale(1.25);
+      filter: blur(32px) saturate(120%);
+      mix-blend-mode: screen;
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: -2;
+    }
+
     @keyframes twinkle {
-      0%,
-      100% {
-        opacity: 0.2;
+      0%, 100% {
+        opacity: 0.35;
         transform: scale(1);
       }
-      50% {
+      45% {
         opacity: 1;
-        transform: scale(1.015);
+        transform: scale(1.02);
+      }
+      70% {
+        opacity: 0.6;
+        transform: scale(0.98);
       }
     }
-    @keyframes drift {
+
+    @keyframes slow-pan {
       0% {
         transform: translate3d(0, 0, 0) scale(1);
       }
       50% {
-        transform: translate3d(-10px, -12px, 0) scale(1.02);
+        transform: translate3d(-30px, -20px, 0) scale(1.03);
       }
       100% {
         transform: translate3d(0, 0, 0) scale(1);
       }
     }
+
     nav {
-      background-color: #0a0a0a;
-      padding: 1em 0;
-      box-shadow: 0 0 10px rgba(77,166,255,0.3);
+      background: linear-gradient(90deg, rgba(6, 9, 32, 0.95), rgba(8, 11, 40, 0.88));
+      padding: 1.1em 0;
+      box-shadow: 0 8px 24px rgba(24, 120, 255, 0.18);
+      border-bottom: 1px solid rgba(90, 120, 255, 0.2);
     }
+
     nav a {
-      color: #4da6ff; /* 航天蓝 */
+      color: #7fc8ff;
       text-decoration: none;
-      margin: 0 1.2em;
-      font-weight: bold;
-      letter-spacing: 0.05em;
+      margin: 0 1.4em;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       transition: color 0.3s ease, text-shadow 0.3s ease;
     }
-    nav a:hover {
-      color: #9cd6ff;
-      text-shadow: 0 0 8px #4da6ff;
+
+    nav a:hover,
+    nav a:focus {
+      color: #d2f1ff;
+      text-shadow: 0 0 8px rgba(120, 200, 255, 0.8);
     }
+
     h1 {
-      margin-top: 0.8em; /* 减少上方空白 */
-      font-size: 2.6em;
-      letter-spacing: 0.1em;
+      margin-top: 1.6em;
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      letter-spacing: 0.12em;
+      text-shadow: 0 0 18px rgba(140, 200, 255, 0.6);
     }
+
     p {
+      max-width: 540px;
+      margin: 0.6em auto 0;
       font-size: 1.2em;
-      opacity: 0.8;
-      margin-top: 0.4em; /* 让说明文字靠近标题 */
+      opacity: 0.88;
     }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin: 3.5em auto 0;
+      flex-wrap: wrap;
+      padding: 0 1.5em 5em;
+    }
+
+    .gallery-card {
+      width: 280px;
+      background: linear-gradient(160deg, rgba(10, 12, 38, 0.92), rgba(17, 19, 55, 0.82));
+      border: 1px solid rgba(120, 160, 255, 0.25);
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      box-shadow: 0 12px 28px rgba(5, 10, 30, 0.65);
+      backdrop-filter: blur(4px);
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-card__body {
+      padding: 1.1em;
+      text-align: left;
+    }
+
+    .gallery-card__title {
+      margin: 0;
+      font-size: 1.1em;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .gallery-card__meta {
+      margin: 0.8em 0 0;
+      font-size: 0.92em;
+      opacity: 0.75;
+    }
+
+    .gallery-card:focus-visible,
+    .gallery-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 36px rgba(35, 75, 155, 0.45);
+      border-color: rgba(160, 210, 255, 0.6);
+    }
+
     footer {
-      margin-top: 5em;
-      opacity: 0.6;
-      font-size: 0.9em;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(90deg, rgba(6, 10, 30, 0.92), rgba(6, 9, 26, 0.88));
+      backdrop-filter: blur(6px);
+      opacity: 0.68;
+      font-size: 0.92em;
+      text-align: center;
+      padding: 0.8em 0;
+      box-shadow: 0 -12px 26px rgba(24, 120, 255, 0.18);
+      border-top: 1px solid rgba(80, 130, 255, 0.22);
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 0.9em 0;
+      }
+
+      nav a {
+        margin: 0 0.9em;
+        letter-spacing: 0.05em;
+        font-size: 0.9em;
+      }
+
+      h1 {
+        margin-top: 1.4em;
+      }
+
+      .gallery {
+        gap: 1.4em;
+        padding-bottom: 6em;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="stars stars--far"></div>
-  <div class="stars stars--near"></div>
+  <div class="star-layer star-layer--slow"></div>
+  <div class="star-layer star-layer--mid"></div>
+  <div class="star-layer star-layer--fast"></div>
+  <div class="horizon-glow" aria-hidden="true"></div>
+
   <nav>
     <a href="home.html">Home</a>
     <a href="about.html">About</a>
@@ -153,49 +307,39 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <h1>🛰️ Satellite Art Archive</h1>
-  <p>Exploring the intersection of art, technology, and outer space.</p>
- <section style="display: flex; justify-content: center; gap: 2em; margin-top: 3em; flex-wrap: wrap;">
-  <a href="https://www.moma.org/collection/works/62272?utm_source=chatgpt" target="_blank" style="text-decoration: none; color: white; width: 280px; background-color: #0a0a0a; border: 1px solid #333; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-    <img src="Images/The Moon Museum.jpg" alt="The Moon Museum" style="width: 100%; height: 160px; object-fit: cover;">
-    <div style="padding: 1em; text-align: left;">
-      <h3 style="margin: 0; font-size: 1.1em;">The Moon Museum</h3>
-      <p style="margin: 1em 0 0 0; font-size: 0.9em; opacity: 0.8;">1969</p>
-    </div>
-  </a>
+  <main>
+    <h1>🛰️ Satellite Art Archive</h1>
+    <p>探索艺术、科技与宇宙空间交汇的灵感档案。</p>
 
-  <a href="https://en.wikipedia.org/wiki/Fallen_Astronaut?utm_source=chatgpt" target="_blank" style="text-decoration: none; color: white; width: 280px; background-color: #0a0a0a; border: 1px solid #333; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-    <img src="Images/Fallen Astronaut.jpg" alt="Fallen Astronaut" style="width: 100%; height: 160px; object-fit: cover;">
-    <div style="padding: 1em; text-align: left;">
-      <h3 style="margin: 0; font-size: 1.1em;">Fallen Astronaut</h3>
-      <p style="margin: 1em 0 0 0; font-size: 0.9em; opacity: 0.8;">1971</p>
-    </div>
-  </a>
+    <section class="gallery" aria-label="精选项目">
+      <a class="gallery-card" href="https://www.moma.org/collection/works/62272?utm_source=chatgpt" target="_blank" rel="noopener">
+        <img src="Images/The Moon Museum.jpg" alt="The Moon Museum">
+        <div class="gallery-card__body">
+          <h3 class="gallery-card__title">The Moon Museum</h3>
+          <p class="gallery-card__meta">1969</p>
+        </div>
+      </a>
 
-  <a href="https://science.nasa.gov/mission/voyager/voyager-mission/overview?utm_source=chatgpt" target="_blank" style="text-decoration: none; color: white; width: 280px; background-color: #0a0a0a; border: 1px solid #333; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-    <img src="Images/Voyager Golden Record.jpg" alt="Voyager Golden Record" style="width: 100%; height: 160px; object-fit: cover;">
-    <div style="padding: 1em; text-align: left;">
-      <h3 style="margin: 0; font-size: 1.1em;">Voyager Golden Record</h3>
-      <p style="margin: 1em 0 0 0; font-size: 0.9em; opacity: 0.8;">1977–present</p>
-    </div>
-  </a>
-</section>
+      <a class="gallery-card" href="https://en.wikipedia.org/wiki/Fallen_Astronaut?utm_source=chatgpt" target="_blank" rel="noopener">
+        <img src="Images/Fallen Astronaut.jpg" alt="Fallen Astronaut">
+        <div class="gallery-card__body">
+          <h3 class="gallery-card__title">Fallen Astronaut</h3>
+          <p class="gallery-card__meta">1971</p>
+        </div>
+      </a>
 
-<footer>
-  © 2025 Satellite Art Archive · Created by gemige530-star
-</footer>
+      <a class="gallery-card" href="https://science.nasa.gov/mission/voyager/voyager-mission/overview?utm_source=chatgpt" target="_blank" rel="noopener">
+        <img src="Images/Voyager Golden Record.jpg" alt="Voyager Golden Record">
+        <div class="gallery-card__body">
+          <h3 class="gallery-card__title">Voyager Golden Record</h3>
+          <p class="gallery-card__meta">1977–Present</p>
+        </div>
+      </a>
+    </section>
+  </main>
 
-<style>
-  footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #0a0a0a;
-    opacity: 0.6;
-    font-size: 0.9em;
-    text-align: center;
-    padding: 0.8em 0;
-    box-shadow: 0 -2px 8px rgba(77,166,255,0.2);
-  }
-</style>
+  <footer>
+    © 2025 Satellite Art Archive · Created by gemige530-star
+  </footer>
+</body>
+</html>
