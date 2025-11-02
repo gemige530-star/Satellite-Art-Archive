@@ -1,4 +1,4 @@
-<!doctype html>
+@doctype html
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -25,39 +25,43 @@
       top: 20px;
       right: 25px;
       z-index: 10000;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
     }
 
-    /* 输入框：深蓝底白字，内部固定显示“Search” */
-    #searchBox {
-      position: relative;
+    /* 固定“Search”字样 */
+    #searchLabel {
+      background-color: #003366; /* 深蓝底 */
+      color: white;
+      font-weight: bold;
       padding: 0.45em 0.9em;
-      padding-left: 70px; /* 给内部Search文字留出空间 */
+      border-radius: 20px;
+      font-size: 0.9em;
+      user-select: none;
+    }
+
+    /* 输入框：baby blue 风格 */
+    #searchBox {
+      padding: 0.45em 0.9em;
       font-size: 0.9em;
       border: none;
       border-radius: 20px;
       outline: none;
-      width: 240px;
-      background-color: #003366; /* 深蓝底 */
-      color: white;
-      transition: background-color 0.3s, width 0.2s;
+      width: 220px;
+      background-color: rgba(173, 216, 230, 0.3);
+      color: #fff;
+      transition: background-color 0.2s, width 0.2s;
     }
 
-    /* 在输入框内部显示固定文字 “Search” */
-    #searchContainer::before {
-      content: "Search";
-      position: absolute;
-      left: 35px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: white;
-      font-weight: bold;
-      font-size: 0.9em;
-      pointer-events: none; /* 让用户点击时不影响输入 */
+    #searchBox::placeholder {
+      color: #e0f7ff;
     }
 
     #searchBox:focus {
-      background-color: #0055aa;
-      width: 280px;
+      background-color: rgba(173, 216, 230, 0.6);
+      width: 260px;
     }
 
     #searchResult {
@@ -65,22 +69,26 @@
       font-size: 0.8em;
       color: #a6dfff;
       text-align: right;
+      position: absolute;
+      top: 50px;
+      right: 25px;
     }
   </style>
 
-  <!-- TimelineJS -->
+  @-- TimelineJS --
   <script src="https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js"></script>
   <link rel="stylesheet" href="https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css">
 </head>
 <body>
 
-  <!-- 固定右上角 -->
+  @-- 固定右上角 --
   <div id="searchContainer">
+    <div id="searchLabel">Search</div>
     <input type="text" id="searchBox" placeholder="Type to search..." />
-    <div id="searchResult"></div>
   </div>
+  <div id="searchResult"></div>
 
-  <!-- 时间线主体 -->
+  @-- 时间线主体 --
   <div id="timeline-embed"></div>
 
   <script>
@@ -130,4 +138,4 @@
     initTimeline();
   </script>
 </body>
-</html>
+</html>把里面搜索放在搜索框里 而不是放在搜索框的左边。另外搜索框里静态的字颜色更鲜明一点。其他不要改动
