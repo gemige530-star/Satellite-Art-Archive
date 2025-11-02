@@ -19,18 +19,30 @@
       height: 100vh;
     }
 
-    /* 页面右上角的搜索框 */
+    /* 页面右上角搜索区域 */
     #searchContainer {
       position: fixed;
       top: 20px;
       right: 25px;
       z-index: 10000;
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+      flex-direction: row;
+      align-items: center;
+      gap: 8px;
     }
 
-    /* 改为 baby blue */
+    /* 固定“Search”字样 */
+    #searchLabel {
+      background-color: #003366; /* 深蓝底 */
+      color: white;
+      font-weight: bold;
+      padding: 0.45em 0.9em;
+      border-radius: 20px;
+      font-size: 0.9em;
+      user-select: none;
+    }
+
+    /* 输入框：baby blue 风格 */
     #searchBox {
       padding: 0.45em 0.9em;
       font-size: 0.9em;
@@ -38,7 +50,7 @@
       border-radius: 20px;
       outline: none;
       width: 220px;
-      background-color: rgba(173, 216, 230, 0.3); /* baby blue 半透明 */
+      background-color: rgba(173, 216, 230, 0.3);
       color: #fff;
       transition: background-color 0.2s, width 0.2s;
     }
@@ -57,6 +69,9 @@
       font-size: 0.8em;
       color: #a6dfff;
       text-align: right;
+      position: absolute;
+      top: 50px;
+      right: 25px;
     }
   </style>
 
@@ -66,11 +81,12 @@
 </head>
 <body>
 
-  <!-- 固定在页面右上角的搜索区域 -->
+  <!-- 固定右上角 -->
   <div id="searchContainer">
-    <input type="text" id="searchBox" placeholder="Search..." />
-    <div id="searchResult"></div>
+    <div id="searchLabel">Search</div>
+    <input type="text" id="searchBox" placeholder="Type to search..." />
   </div>
+  <div id="searchResult"></div>
 
   <!-- 时间线主体 -->
   <div id="timeline-embed"></div>
