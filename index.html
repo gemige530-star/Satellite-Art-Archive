@@ -50,7 +50,6 @@
       padding: 0.8em 0;
       box-shadow: 0 -2px 8px rgba(77,166,255,0.2);
     }
-    /* Chatbox */
     #chat-section {
       position: fixed;
       bottom: 20px;
@@ -93,22 +92,6 @@
     #sendBtn:hover {
       background: #09f;
     }
-    #chatbox {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 380px;
-  height: 520px;
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.25);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-  color: white;
-  padding: 12px;
-  z-index: 9999;
-  overflow: hidden;
-}
   </style>
 </head>
 <body>
@@ -159,7 +142,7 @@
       <div id="chat-history"></div>
     </div>
     <div id="chat-input-area">
-      <input id="userInput" type="text" placeholder="Ask AI...">
+      <input id="userInput" type="text" placeholder="Ask DeepSeek...">
       <button id="sendBtn">Send</button>
     </div>
   </section>
@@ -178,27 +161,34 @@
       input.value = "";
 
       const loading = document.createElement("div");
-      loading.textContent = "AI is typing...";
+      loading.textContent = "DeepSeek is thinking...";
       loading.style.color = "#888";
       history.appendChild(loading);
       history.scrollTop = history.scrollHeight;
 
       try {
-        const res = await fetch("/api/chat", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ message: userMsg })
-});
+        const res = await fetch("https://api.deepseek.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer YOUR_DEEPSEEK_API_KEY"
+          },
+          body: JSON.stringify({
+            model: "deepseek-chat",
+            messages: [{ role: "user", content: userMsg }]
+          })
+        });
 
         const data = await res.json();
         loading.remove();
 
+        const aiReply = data.choices?.[0]?.message?.content || "No response.";
         const aiBubble = document.createElement("div");
-        aiBubble.innerHTML = `<div style="display:inline-block;background:#333;padding:8px 12px;border-radius:10px;margin:4px 0;">${data.reply}</div>`;
+        aiBubble.innerHTML = `<div style="display:inline-block;background:#333;padding:8px 12px;border-radius:10px;margin:4px 0;">${aiReply}</div>`;
         history.appendChild(aiBubble);
         history.scrollTop = history.scrollHeight;
       } catch (err) {
-        loading.textContent = "Error connecting to AI.";
+        loading.textContent = "Error connecting to DeepSeek.";
         loading.style.color = "red";
       }
     }
