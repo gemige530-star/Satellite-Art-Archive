@@ -1,203 +1,770 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Satellite Art Archive</title>
-  <style>
-    body {
-      margin: 0;
-      background: black;
-      color: white;
-      font-family: sans-serif;
-      text-align: center;
-    }
-    nav {
-      background-color: #0a0a0a;
-      padding: 1em 0;
-      box-shadow: 0 0 10px rgba(77,166,255,0.3);
-    }
-    nav a {
-      color: #4da6ff;
-      text-decoration: none;
-      margin: 0 1.2em;
-      font-weight: bold;
-      letter-spacing: 0.05em;
-      transition: color 0.3s ease, text-shadow 0.3s ease;
-    }
-    nav a:hover {
-      color: #9cd6ff;
-      text-shadow: 0 0 8px #4da6ff;
-    }
-    h1 {
-      margin-top: 0.8em;
-      font-size: 2.6em;
-      letter-spacing: 0.1em;
-    }
-    p {
-      font-size: 1.2em;
-      opacity: 0.8;
-      margin-top: 0.4em;
-    }
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #0a0a0a;
-      opacity: 0.6;
-      font-size: 0.9em;
-      text-align: center;
-      padding: 0.8em 0;
-      box-shadow: 0 -2px 8px rgba(77,166,255,0.2);
-    }
-    #chat-section {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 320px;
-      z-index: 1000;
-    }
-    #chat-window {
-      background: #111;
-      border-radius: 10px;
-      padding: 10px;
-      max-height: 400px;
-      overflow-y: auto;
-      color: #fff;
-      font-family: sans-serif;
-      font-size: 14px;
-      box-shadow: 0 0 12px rgba(77,166,255,0.3);
-    }
-    #chat-input-area {
-      margin-top: 10px;
-      display: flex;
-      gap: 6px;
-    }
-    #userInput {
-      flex: 1;
-      padding: 8px;
-      border-radius: 8px;
-      border: none;
-      background: #222;
-      color: #fff;
-    }
-    #sendBtn {
-      background: #0af;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 12px;
-      cursor: pointer;
-    }
-    #sendBtn:hover {
-      background: #09f;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Satellite Art Archive</title>
+
+<style>
+
+body {
+    margin: 0;
+    background: black;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+
+/* Navigation */
+
+nav {
+    background-color: #0a0a0a;
+    padding: 1em 0;
+    box-shadow: 0 0 10px rgba(77,166,255,0.3);
+}
+
+nav a {
+
+    color: #4da6ff;
+    text-decoration: none;
+    margin: 0 1.2em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+
+    color:#9cd6ff;
+}
+
+
+/* Language Switch */
+
+#language-switch {
+
+    position: fixed;
+    top:20px;
+    right:30px;
+    z-index:2000;
+
+}
+
+
+#language-switch button {
+
+    background:#111;
+    color:#4da6ff;
+
+    border:1px solid #4da6ff;
+
+    padding:6px 12px;
+    margin-left:5px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+    font-weight:bold;
+
+}
+
+
+#language-switch button:hover {
+
+    background:#4da6ff;
+    color:white;
+
+}
+
+
+
+/* Title */
+
+h1 {
+
+    margin-top:0.8em;
+    font-size:2.6em;
+    letter-spacing:0.1em;
+
+}
+
+
+p {
+
+    font-size:1.2em;
+    opacity:0.8;
+
+}
+
+
+
+/* Project Cards */
+
+
+.projects {
+
+    display:flex;
+    justify-content:center;
+    gap:2em;
+
+    margin-top:3em;
+
+    flex-wrap:wrap;
+
+}
+
+
+.card {
+
+    width:280px;
+
+    background:#0a0a0a;
+
+    border:1px solid #333;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    text-decoration:none;
+
+    color:white;
+
+    transition:transform 0.3s;
+
+}
+
+
+.card:hover {
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 15px rgba(77,166,255,0.5);
+
+}
+
+
+.card img {
+
+    width:100%;
+    height:160px;
+
+    object-fit:cover;
+
+}
+
+
+.card-content {
+
+    padding:1em;
+
+    text-align:left;
+
+}
+
+
+.card h3 {
+
+    margin:0;
+
+}
+
+
+
+/* Footer */
+
+
+footer {
+
+    position:fixed;
+
+    bottom:0;
+
+    width:100%;
+
+    background:#0a0a0a;
+
+    opacity:0.7;
+
+    padding:0.8em;
+
+}
+
+
+
+/* Chat */
+
+#chat-section {
+
+    position:fixed;
+
+    bottom:20px;
+
+    right:20px;
+
+    width:320px;
+
+}
+
+
+#chat-window {
+
+    background:#111;
+
+    border-radius:10px;
+
+    padding:10px;
+
+    max-height:400px;
+
+    overflow-y:auto;
+
+}
+
+
+#chat-input-area {
+
+    display:flex;
+
+    gap:6px;
+
+    margin-top:10px;
+
+}
+
+
+#userInput {
+
+    flex:1;
+
+    padding:8px;
+
+    background:#222;
+
+    border:none;
+
+    color:white;
+
+    border-radius:8px;
+
+}
+
+
+#sendBtn {
+
+    background:#0af;
+
+    color:white;
+
+    border:none;
+
+    padding:8px 12px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+
+</style>
+
 </head>
+
+
+
 <body>
 
-  <nav>
-    <a href="home.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
-  </nav>
 
-  <h1>🛰️ Satellite Art Archive</h1>
-  <p>Exploring the intersection of art, technology, and outer space.</p>
 
-  <section style="display: flex; justify-content: center; gap: 2em; margin-top: 3em; flex-wrap: wrap;">
-    <a href="https://www.moma.org/collection/works/62272" target="_blank" style="text-decoration: none; color: white; width: 280px; background-color: #0a0a0a; border: 1px solid #333; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-      <img src="Images/The Moon Museum.jpg" alt="The Moon Museum" style="width: 100%; height: 160px; object-fit: cover;">
-      <div style="padding: 1em; text-align: left;">
-        <h3 style="margin: 0; font-size: 1.1em;">The Moon Museum</h3>
-        <p style="margin: 1em 0 0 0; font-size: 0.9em; opacity: 0.8;">1969</p>
-      </div>
-    </a>
+<!-- Language -->
 
-    <a href="https://en.wikipedia.org/wiki/Fallen_Astronaut" target="_blank" style="text-decoration: none; color: white; width: 280px; background-color: #0a0a0a; border: 1px solid #333; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-      <img src="Images/Fallen Astronaut.jpg" alt="Fallen Astronaut" style="width: 100%; height: 160px; object-fit: cover;">
-      <div style="padding: 1em; text-align: left;">
-        <h3 style="margin: 0; font-size: 1.1em;">Fallen Astronaut</h3>
-        <p style="margin: 1em 0 0 0; font-size: 0.9em; opacity: 0.8;">1971</p>
-      </div>
-    </a>
+<div id="language-switch">
 
-    <a href="https://science.nasa.gov/mission/voyager/voyager-mission/overview" target="_blank" style="text-decoration: none; color: white; width: 280px; background-color: #0a0a0a; border: 1px solid #333; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
-      <img src="Images/Voyager Golden Record.jpg" alt="Voyager Golden Record" style="width: 100%; height: 160px; object-fit: cover;">
-      <div style="padding: 1em; text-align: left;">
-        <h3 style="margin: 0; font-size: 1.1em;">Voyager Golden Record</h3>
-        <p style="margin: 1em 0 0 0; font-size: 0.9em; opacity: 0.8;">1977–present</p>
-      </div>
-    </a>
-  </section>
+<button onclick="changeLanguage('en')">
+EN
+</button>
 
-  <footer>
-    © 2025 Satellite Art Archive · Created by gemige530-star
-  </footer>
+<button onclick="changeLanguage('zh')">
+中文
+</button>
 
-  <!-- Chatbox -->
-  <section id="chat-section">
-    <div id="chat-window">
-      <div id="chat-history"></div>
-    </div>
-    <div id="chat-input-area">
-      <input id="userInput" type="text" placeholder="Ask DeepSeek...">
-      <button id="sendBtn">Send</button>
-    </div>
-  </section>
+</div>
 
-  <script>
-    async function sendMessage() {
-      const input = document.getElementById("userInput");
-      const history = document.getElementById("chat-history");
-      const userMsg = input.value.trim();
-      if (!userMsg) return;
 
-      const userBubble = document.createElement("div");
-      userBubble.style.textAlign = "right";
-      userBubble.innerHTML = `<div style="display:inline-block;background:#0af;padding:8px 12px;border-radius:10px;margin:4px 0;">${userMsg}</div>`;
-      history.appendChild(userBubble);
-      input.value = "";
 
-      const loading = document.createElement("div");
-      loading.textContent = "DeepSeek is thinking...";
-      loading.style.color = "#888";
-      history.appendChild(loading);
-      history.scrollTop = history.scrollHeight;
+<!-- Navigation -->
 
-      try {
-        const res = await fetch("https://api.deepseek.com/v1", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer YOUR_DEEPSEEK_API_KEY"
-          },
-          body: JSON.stringify({
-            model: "deepseek-chat",
-            messages: [{ role: "user", content: userMsg }]
-          })
-        });
 
-        const data = await res.json();
-        loading.remove();
+<nav>
 
-        const aiReply = data.choices?.[0]?.message?.content || "No response.";
-        const aiBubble = document.createElement("div");
-        aiBubble.innerHTML = `<div style="display:inline-block;background:#333;padding:8px 12px;border-radius:10px;margin:4px 0;">${aiReply}</div>`;
-        history.appendChild(aiBubble);
-        history.scrollTop = history.scrollHeight;
-      } catch (err) {
-        loading.textContent = "Error connecting to DeepSeek.";
-        loading.style.color = "red";
-      }
-    }
+<a href="home.html"
+data-en="Home"
+data-zh="首页">
+Home
+</a>
 
-    document.getElementById("sendBtn").addEventListener("click", sendMessage);
-    document.getElementById("userInput").addEventListener("keypress", (e) => {
-      if (e.key === "Enter") sendMessage();
-    });
-  </script>
+
+<a href="about.html"
+data-en="About"
+data-zh="关于">
+About
+</a>
+
+
+<a href="projects.html"
+data-en="Projects"
+data-zh="项目">
+Projects
+</a>
+
+
+<a href="contact.html"
+data-en="Contact"
+data-zh="联系">
+Contact
+</a>
+
+
+</nav>
+
+
+
+
+
+<h1
+data-en="🛰️ Satellite Art Archive"
+data-zh="🛰️ 卫星艺术档案馆">
+
+🛰️ Satellite Art Archive
+
+</h1>
+
+
+
+<p
+
+data-en="Exploring the intersection of art, technology, and outer space."
+
+data-zh="探索艺术、技术与外太空之间的交汇。">
+
+Exploring the intersection of art, technology, and outer space.
+
+</p>
+
+
+
+
+
+<section class="projects">
+
+
+
+<a class="card"
+
+href="https://www.moma.org/collection/works/62272"
+
+target="_blank">
+
+
+<img src="Images/The Moon Museum.jpg">
+
+
+<div class="card-content">
+
+
+<h3
+
+data-en="The Moon Museum"
+
+data-zh="月球博物馆">
+
+The Moon Museum
+
+</h3>
+
+
+<p
+
+data-en="1969"
+
+data-zh="1969">
+
+1969
+
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+<a class="card"
+
+href="https://en.wikipedia.org/wiki/Fallen_Astronaut"
+
+target="_blank">
+
+
+<img src="Images/Fallen Astronaut.jpg">
+
+
+<div class="card-content">
+
+
+<h3
+
+data-en="Fallen Astronaut"
+
+data-zh="坠落的宇航员">
+
+Fallen Astronaut
+
+</h3>
+
+
+<p>
+
+1971
+
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+
+
+<a class="card"
+
+href="https://science.nasa.gov/mission/voyager/voyager-mission/overview"
+
+target="_blank">
+
+
+<img src="Images/Voyager Golden Record.jpg">
+
+
+<div class="card-content">
+
+
+<h3
+
+data-en="Voyager Golden Record"
+
+data-zh="旅行者金唱片">
+
+Voyager Golden Record
+
+</h3>
+
+
+<p>
+
+1977–present
+
+</p>
+
+
+</div>
+
+
+</a>
+
+
+
+
+</section>
+
+
+
+
+
+<footer>
+
+© 2025 
+
+<span
+data-en="Satellite Art Archive · Created by gemige530-star"
+
+data-zh="卫星艺术档案馆 · 创建者 gemige530-star">
+
+Satellite Art Archive · Created by gemige530-star
+
+</span>
+
+
+</footer>
+
+
+
+
+
+
+<!-- Chat -->
+
+<section id="chat-section">
+
+
+<div id="chat-window">
+
+<div id="chat-history">
+
+</div>
+
+</div>
+
+
+
+<div id="chat-input-area">
+
+
+<input
+
+id="userInput"
+
+placeholder="Ask DeepSeek...">
+
+
+<button id="sendBtn">
+
+Send
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<script>
+
+
+/* Language Switch */
+
+
+function changeLanguage(lang){
+
+
+const elements=document.querySelectorAll("[data-en]");
+
+
+elements.forEach(function(el){
+
+
+if(lang==="zh"){
+
+el.textContent=el.dataset.zh;
+
+}
+
+else{
+
+el.textContent=el.dataset.en;
+
+}
+
+
+});
+
+
+}
+
+
+
+
+
+/* DeepSeek Chat */
+
+
+async function sendMessage(){
+
+
+const input=document.getElementById("userInput");
+
+const history=document.getElementById("chat-history");
+
+
+const userMsg=input.value.trim();
+
+
+if(!userMsg)return;
+
+
+
+history.innerHTML +=
+
+`
+
+<div style="text-align:right">
+
+<div style="display:inline-block;background:#0af;padding:8px;border-radius:10px">
+
+${userMsg}
+
+</div>
+
+</div>
+
+`;
+
+
+input.value="";
+
+
+
+try{
+
+
+const res=await fetch(
+
+"https://api.deepseek.com/v1/chat/completions",
+
+{
+
+method:"POST",
+
+headers:{
+
+
+"Content-Type":"application/json",
+
+"Authorization":"Bearer YOUR_DEEPSEEK_API_KEY"
+
+
+},
+
+
+body:JSON.stringify({
+
+model:"deepseek-chat",
+
+messages:[
+
+{
+
+role:"user",
+
+content:userMsg
+
+}
+
+]
+
+})
+
+}
+
+
+);
+
+
+
+const data=await res.json();
+
+
+const reply=
+
+data.choices?.[0]?.message?.content ||
+
+"No response";
+
+
+
+history.innerHTML +=
+
+`
+
+<div>
+
+<div style="display:inline-block;background:#333;padding:8px;border-radius:10px">
+
+${reply}
+
+</div>
+
+</div>
+
+`;
+
+
+}
+
+catch(error){
+
+
+history.innerHTML +=
+
+"<p style='color:red'>Connection error.</p>";
+
+
+}
+
+
+}
+
+
+
+
+
+document
+
+.getElementById("sendBtn")
+
+.addEventListener(
+
+"click",
+
+sendMessage
+
+);
+
+
+
+document
+
+.getElementById("userInput")
+
+.addEventListener(
+
+"keypress",
+
+function(e){
+
+if(e.key==="Enter")
+
+sendMessage();
+
+}
+
+);
+
+
+
+</script>
+
+
 
 </body>
+
 </html>
